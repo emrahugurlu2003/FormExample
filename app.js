@@ -17,3 +17,11 @@ function toggleModal() {
   // Update the display property based on visibility
   modalContent.style.display = modalVisible ? "block" : "none";
 }
+
+//* ------ Selectors ------- */
+
+//* ------- Variables ------- */
+
+//* ------- Event Listeners ------- */
+
+//* ------- Functions ------- */

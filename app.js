@@ -1,7 +1,7 @@
 var modalVisible = false; // Track the modal's visibility
 function toggleModal() {
-  // Get the modal element
-  var modal = document.getElementById("myModal");
+  // Get the modalContent element
+  var modalContent = document.getElementById("modalContent");
 
   // Get the toggle button element
   var btn = document.getElementById("toggle-myModal");
@@ -15,5 +15,5 @@ function toggleModal() {
   modalVisible = !modalVisible;
 
   // Update the display property based on visibility
-  modal.style.display = modalVisible ? "block" : "none";
+  modalContent.style.display = modalVisible ? "block" : "none";
 }

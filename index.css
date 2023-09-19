@@ -142,7 +142,7 @@ article.choices {
 }
 
 /** --------- MODAL-CARD --------- */
-.modal-card {
+.section.modal-card {
   display: none;
   width: 90%;
 }
@@ -156,7 +156,7 @@ article.choices {
   justify-content: center;
   color: white;
 }
-.modal {
+article.modal {
   background-color: var(--red);
   text-align: center;
   padding: 2rem 3rem;

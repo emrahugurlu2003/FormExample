@@ -6,6 +6,18 @@
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
+    <!-- Button to toggle the modal -->
+    <button id="toggle-myModal" onclick="toggleModal()">Show Game Rules</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span id="closeButton" class="close" onclick="toggleModal()"
+          >&times;</span
+        >
+        <img id="modalImage" src="" alt="Modal Image" />
+      </div>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>

@@ -32,11 +32,17 @@ const pcChoiceDiv = document.getElementById("pc-choice");
 
 //? message
 const messagePar = document.querySelector(".message");
+//? Score
+const scoreCardSection = document.querySelector(".score-card");
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");
 let userSelectImg = document.createElement("img");
 let pcSelectImg = document.createElement("img");
+//? Define Colors
+const DRAW = "#ffc538";
+const LOST = "#fb778b";
+const WIN = "#5ab7ac";
 
 //* ------- Event Listeners ------- */
 selectionArticle.addEventListener("click", (e) => {
@@ -98,14 +104,17 @@ const calculateResult = () => {
 const draw = (userChoice, pcChoice) => {
   // console.log(`It's a draw! ${userChoice} versus ${pcChoice}`);
   messagePar.textContent = `It's a draw! ${userChoice.toUpperCase()} versus ${pcChoice.toUpperCase()}`;
+  scoreCardSection.style.color = DRAW;
 };
 const userWins = (userChoice, pcChoice) => {
   // console.log(`You Win! ${userChoice} beats ${pcChoice}`);
   messagePar.textContent = `You Win! ${userChoice.toUpperCase()} beats ${pcChoice.toUpperCase()}`;
+  scoreCardSection.style.color = WIN;
 };
 const pcWins = (userChoice, pcChoice) => {
   // console.log(`You Lost! ${userChoice} is beaten by ${pcChoice}`);
   messagePar.textContent = `You Lost! ${userChoice.toUpperCase()} is beaten by ${pcChoice.toUpperCase()}`;
+  scoreCardSection.style.color = LOST;
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

@@ -24,11 +24,14 @@ const selectionArticle = document.querySelector(".selection");
 // //? Images
 // const rockImg = document.getElementById("rock");
 // const paperImg = document.getElementById("paper");
-// const scissorImg = document.getElementById("scissor");
+// const scissorsImg = document.getElementById("scissors");
 
 //? divs of the selected elements
 const yourChoiceDiv = document.getElementById("your-choice");
 const pcChoiceDiv = document.getElementById("pc-choice");
+
+//? message
+const messagePar = document.querySelector(".message");
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");
@@ -48,7 +51,7 @@ selectionArticle.addEventListener("click", (e) => {
 });
 
 const createPcSelection = () => {
-  const pcArr = ["rock", "paper", "scissor"];
+  const pcArr = ["rock", "paper", "scissors"];
   const pcRandom = pcArr[Math.floor(Math.random() * 3)];
   pcSelectImg.src = `./assets/${pcRandom}.png`;
   pcSelectImg.alt = pcRandom;
@@ -56,8 +59,8 @@ const createPcSelection = () => {
 };
 
 const calculateResult = () => {
-  console.log(userSelectImg.alt);
-  console.log(pcSelectImg.alt);
+  // console.log(userSelectImg.alt);
+  // console.log(pcSelectImg.alt);
 
   //? Case:Draw
   if (userSelectImg.alt === pcSelectImg.alt) {
@@ -67,17 +70,23 @@ const calculateResult = () => {
       case "paper":
         if (pcSelectImg.alt === "rock") {
           userWins(userSelectImg.alt, pcSelectImg.alt);
-        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        } else {
+          pcWins(userSelectImg.alt, pcSelectImg.alt);
+        }
         break;
       case "scissors":
         if (pcSelectImg.alt === "paper") {
           userWins(userSelectImg.alt, pcSelectImg.alt);
-        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        } else {
+          pcWins(userSelectImg.alt, pcSelectImg.alt);
+        }
         break;
       case "rock":
         if (pcSelectImg.alt === "scissors") {
           userWins(userSelectImg.alt, pcSelectImg.alt);
-        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        } else {
+          pcWins(userSelectImg.alt, pcSelectImg.alt);
+        }
         break;
 
       default:
@@ -87,7 +96,16 @@ const calculateResult = () => {
 };
 
 const draw = (userChoice, pcChoice) => {
-  console.log(`It's a draw!${userChoice} versus ${pcChoice}`);
+  // console.log(`It's a draw! ${userChoice} versus ${pcChoice}`);
+  messagePar.textContent = `It's a draw! ${userChoice.toUpperCase()} versus ${pcChoice.toUpperCase()}`;
+};
+const userWins = (userChoice, pcChoice) => {
+  // console.log(`You Win! ${userChoice} beats ${pcChoice}`);
+  messagePar.textContent = `You Win! ${userChoice.toUpperCase()} beats ${pcChoice.toUpperCase()}`;
+};
+const pcWins = (userChoice, pcChoice) => {
+  // console.log(`You Lost! ${userChoice} is beaten by ${pcChoice}`);
+  messagePar.textContent = `You Lost! ${userChoice.toUpperCase()} is beaten by ${pcChoice.toUpperCase()}`;
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";
@@ -102,9 +120,9 @@ const draw = (userChoice, pcChoice) => {
 //   image.alt = "paper";
 //   yourChoiceDiv.appendChild(image);
 // });
-// scissorImg.addEventListener("click", () => {
-//   image.src = "./assets/scissor.png";
-//   image.alt = "scissor";
+// scissorsImg.addEventListener("click", () => {
+//   image.src = "./assets/scissors.png";
+//   image.alt = "scissors";
 //   yourChoiceDiv.appendChild(image);
 // });
 //* ------- Functions ------- */

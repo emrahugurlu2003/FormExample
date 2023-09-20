@@ -34,6 +34,8 @@ const pcChoiceDiv = document.getElementById("pc-choice");
 const messagePar = document.querySelector(".message");
 //? Score
 const scoreCardSection = document.querySelector(".score-card");
+const pcScoreSpan = document.getElementById("pc-score");
+const userScoreSpan = document.getElementById("your-score");
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");
@@ -112,12 +114,14 @@ const userWins = (userChoice, pcChoice) => {
   messagePar.textContent = `You Win! ${userChoice.toUpperCase()} beats ${pcChoice.toUpperCase()}`;
   scoreCardSection.style.color = WIN;
   messagePar.style.backgroundColor = WIN;
+  userScoreSpan.textContent++;
 };
 const pcWins = (userChoice, pcChoice) => {
   // console.log(`You Lost! ${userChoice} is beaten by ${pcChoice}`);
   messagePar.textContent = `You Lost! ${userChoice.toUpperCase()} is beaten by ${pcChoice.toUpperCase()}`;
   scoreCardSection.style.color = LOST;
   messagePar.style.backgroundColor = LOST;
+  pcScoreSpan.textContent++;
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

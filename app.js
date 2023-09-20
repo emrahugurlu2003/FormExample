@@ -61,12 +61,33 @@ const calculateResult = () => {
 
   //? Case:Draw
   if (userSelectImg.alt === pcSelectImg.alt) {
-    draw();
+    draw(userSelectImg.alt, pcSelectImg.alt);
+  } else {
+    switch (userSelectImg.alt) {
+      case "paper":
+        if (pcSelectImg.alt === "rock") {
+          userWins(userSelectImg.alt, pcSelectImg.alt);
+        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        break;
+      case "scissors":
+        if (pcSelectImg.alt === "paper") {
+          userWins(userSelectImg.alt, pcSelectImg.alt);
+        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        break;
+      case "rock":
+        if (pcSelectImg.alt === "scissors") {
+          userWins(userSelectImg.alt, pcSelectImg.alt);
+        } else pcWins(userSelectImg.alt, pcSelectImg.alt);
+        break;
+
+      default:
+        break;
+    }
   }
 };
 
-const draw = () => {
-  console.log("It's a draw!");
+const draw = (userChoice, pcChoice) => {
+  console.log(`It's a draw!${userChoice} versus ${pcChoice}`);
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

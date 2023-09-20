@@ -28,10 +28,12 @@ const selectionArticle = document.querySelector(".selection");
 
 //? divs of the selected elements
 const yourChoiceDiv = document.getElementById("your-choice");
+const pcChoiceDiv = document.getElementById("pc-choice");
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");
 let userSelectImg = document.createElement("img");
+let pcSelectImg = document.createElement("img");
 
 //* ------- Event Listeners ------- */
 selectionArticle.addEventListener("click", (e) => {
@@ -40,8 +42,17 @@ selectionArticle.addEventListener("click", (e) => {
     userSelectImg.src = `./assets/${e.target.id}.png`;
     userSelectImg.alt = e.target.id;
     yourChoiceDiv.appendChild(userSelectImg);
+    createPcSelection();
   }
 });
+
+const createPcSelection = () => {
+  const pcArr = ["rock", "paper", "scissor"];
+  const pcRandom = pcArr[Math.floor(Math.random() * 3)];
+  pcSelectImg.src = `./assets/${pcRandom}.png`;
+  pcSelectImg.alt = pcRandom;
+  pcChoiceDiv.appendChild(pcSelectImg);
+};
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";
 //   image.alt = "rock";

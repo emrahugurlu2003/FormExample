@@ -43,6 +43,7 @@ selectionArticle.addEventListener("click", (e) => {
     userSelectImg.alt = e.target.id;
     yourChoiceDiv.appendChild(userSelectImg);
     createPcSelection();
+    calculateResult();
   }
 });
 
@@ -52,6 +53,11 @@ const createPcSelection = () => {
   pcSelectImg.src = `./assets/${pcRandom}.png`;
   pcSelectImg.alt = pcRandom;
   pcChoiceDiv.appendChild(pcSelectImg);
+};
+
+const calculateResult = () => {
+  console.log(userSelectImg.alt);
+  console.log(pcSelectImg.alt);
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

@@ -58,6 +58,15 @@ const createPcSelection = () => {
 const calculateResult = () => {
   console.log(userSelectImg.alt);
   console.log(pcSelectImg.alt);
+
+  //? Case:Draw
+  if (userSelectImg.alt === pcSelectImg.alt) {
+    draw();
+  }
+};
+
+const draw = () => {
+  console.log("It's a draw!");
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

@@ -105,16 +105,19 @@ const draw = (userChoice, pcChoice) => {
   // console.log(`It's a draw! ${userChoice} versus ${pcChoice}`);
   messagePar.textContent = `It's a draw! ${userChoice.toUpperCase()} versus ${pcChoice.toUpperCase()}`;
   scoreCardSection.style.color = DRAW;
+  messagePar.style.backgroundColor = DRAW;
 };
 const userWins = (userChoice, pcChoice) => {
   // console.log(`You Win! ${userChoice} beats ${pcChoice}`);
   messagePar.textContent = `You Win! ${userChoice.toUpperCase()} beats ${pcChoice.toUpperCase()}`;
   scoreCardSection.style.color = WIN;
+  messagePar.style.backgroundColor = WIN;
 };
 const pcWins = (userChoice, pcChoice) => {
   // console.log(`You Lost! ${userChoice} is beaten by ${pcChoice}`);
   messagePar.textContent = `You Lost! ${userChoice.toUpperCase()} is beaten by ${pcChoice.toUpperCase()}`;
   scoreCardSection.style.color = LOST;
+  messagePar.style.backgroundColor = LOST;
 };
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";

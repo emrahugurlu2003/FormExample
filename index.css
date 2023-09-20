@@ -71,7 +71,7 @@ main.container {
 }
 
 /** --------- SCORE-CARD --------- */
-.section.score-card {
+section.score-card {
   display: flex;
   flex-direction: column;
   align-items: center;

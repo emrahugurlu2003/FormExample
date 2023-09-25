@@ -113,8 +113,8 @@ main.container {
 /** 7--- Styles  for a score card section within the document --------- */
 section.score-card {
   /* Styles for the score card container. */
-  position: static;
-  top: 1000px;
+  position: relative;
+  top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,8 +122,6 @@ section.score-card {
   color: var(--yellow);
   border-radius: 5px;
   padding: 0.5rem;
-  /* To reset the top position when modal is not displayed */
-  top: 0;
 }
 .score-card .top {
   /* Styles for the top score section within the score card. */

@@ -1,50 +1,17 @@
-/* importing two Google Fonts: Comfortaa and Oswald, 
+/* 1-importing two Google Fonts: Comfortaa and Oswald, 
 into CSS to use them for styling the web content. */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
-/* The CSS reset: */
+/* 2-The CSS reset: */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-/* --------Modal styling----------- */
-/* Styles for the modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-}
-
-/* Styles for the modal content */
-.modal-content {
-  display: none; /* Initially hide the modal content */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Close button style */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-/* ----------EOF Modal Styling---------------- */
-/* -------------------body styling------------------- */
+/* 3------------------body styling------------------- */
 :root {
+  /* Defines CSS variables (custom properties) for color values and font families. */
   --yellow: #ffc538;
   --red: #fb778b;
   --green: #5ab7ac;
@@ -57,7 +24,7 @@ body {
   background-color: var(--black);
   font-family: var(--ff-comfortaa);
   height: 100vh;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
 }
@@ -65,22 +32,101 @@ body {
 main.container {
   width: 100%;
   min-width: 300px;
-  max-width: 800px;
+  max-width: 100vw;
   margin: auto;
   padding: 1rem;
 }
 
-/** --------- SCORE-CARD --------- */
+/* 4----Toggle-Button Styling--- */
+#button-toggle-Modal {
+  position: relative;
+  top: 1px; /* Adjust the top position as needed */
+  left: 10px;
+  background-color: var(--green); /* Change the background color as desired */
+  color: white;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* z-index: 2; Ensure the button is rendered above the modal content */
+}
+
+/* Styles for the toggle button hover state */
+#button-toggle-Modal:hover {
+  background-color: var(--yellow); /* Change the background color on hover */
+}
+/* 5--------Toggle-Modal styling----------- */
+/* Styles for the toggle-modal */
+.toggle-modal {
+  /* Initially hides the modal. */
+  display: none;
+  /* Makes the modal cover the entire viewport. */
+  position: relative;
+  top: 2vmax;
+  left: 0vmax;
+  width: 95vmax;
+  height: 70vmax;
+  /* Adds a semi-transparent dark background. */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Ensures the modal is rendered on top of other elements. */
+  /* z-index: 1; */
+}
+/* When the modal is visible, display its content */
+/* Adjust the score-card's top position when the modal is open */
+.toggle-modal.show {
+  display: block;
+  top: 75vmax; /* Adjust this value to position it below the modal */
+}
+
+/* 6a------- Styles for the content inside the modal----------- */
+.toggle-modal-content {
+  /* Centers the modal content both horizontally and vertically. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Sets the background color of the modal content to white. */
+  background-color: white;
+  /* Adds padding and centers text within the modal content. */
+  padding: 11px;
+  text-align: center;
+}
+
+/* 6b-----Styles for a close button inside the toggle-modal. */
+.toggle-close {
+  display: block;
+  /* Positions the close button in the top-right corner of the modal. */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /* Changes the cursor to a pointer when hovering over the close button. */
+  cursor: pointer;
+}
+#toggle-modalImage {
+  display: block;
+  max-width: 95vw;
+  max-height: 75vh;
+  padding: 1px 1px;
+}
+/* ----------EOF Modal Styling---------------- */
+
+/** 7--- Styles  for a score card section within the document --------- */
 section.score-card {
+  /* Styles for the score card container. */
+  position: static;
+  top: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 3px 3px 10px 1px;
-  color: var(--grey);
+  color: var(--yellow);
   border-radius: 5px;
   padding: 0.5rem;
+  /* To reset the top position when modal is not displayed */
+  top: 0;
 }
 .score-card .top {
+  /* Styles for the top score section within the score card. */
   font-family: var(--ff-oswald);
   color: var(--red);
   width: 100%;
@@ -89,11 +135,13 @@ section.score-card {
   margin-bottom: 1rem;
 }
 .score-card .score {
+  /* Styles for the score section within the score card. */
   color: var(--grey);
   font-size: 1.8rem;
 }
 
 .score-card .description {
+  /* Styles for the description section within the score card. */
   width: 90%;
   color: var(--grey);
   margin: 1rem 0;
@@ -102,36 +150,41 @@ section.score-card {
   text-align: center;
 }
 
-/** --------- IMAGES --------- */
+/** 8------  styles for a group of IMAGES:--------- */
 .selection {
+  /* Styles for a container of images.Arranges images horizontally with spacing. */
   display: flex;
   gap: 0.8rem;
 }
 .selection img {
+  /* Styles for individual images within the container. Sets width and adds a circular border radius. */
   width: 80px;
   border-radius: 50%;
 }
 .selection img:hover {
+  /* Styles for image hover states.Adds a box shadow and changes the cursor to a pointer when hovering */
   box-shadow: 0px 5px 20px var(--grey);
   cursor: pointer;
 }
 
-/** --------- CHOICES --------- */
+/** 9----- This section defines styles for CHOICES section within the document ----- */
 .choice-section {
   margin-top: 3rem;
   text-align: center;
 }
 
 .choice-section img {
+  /* Styles for images within the choice section.  Sets a circular border radius and width. */
   border-radius: 50%;
   width: 60%;
 }
 
 article.choices {
+  /* targets the article elements with a class of "choices" */
   display: flex;
   justify-content: center;
 }
-/*? RESULT  */
+/*10-----This section defines styles for RESULT messages --*/
 .message {
   font-family: "Oswald", sans-serif;
   margin-top: 1.5rem;
@@ -141,12 +194,16 @@ article.choices {
   color: white;
 }
 
-/** --------- MODAL-CARD --------- */
-.section.modal-card {
+/** 11------- styles for MODAL-CARD section --------- */
+section.modal-card {
+  /* Initially hides the modal card and sets its width. */
   display: none;
   width: 90%;
+  text-align: center;
+  justify-content: left;
 }
 .modal-card.show {
+  /* Styles for a visible modal card. Positions it in the center, changes text color to white, and adds a background color. */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -157,6 +214,8 @@ article.choices {
   color: white;
 }
 article.modal {
+  /*  Styles for the modal article.
+Sets background color, text alignment, padding, width, maximum width, font size, and border radius. */
   background-color: var(--red);
   text-align: center;
   padding: 2rem 3rem;
@@ -166,6 +225,7 @@ article.modal {
   border-radius: 20px;
 }
 .modal button {
+  /* Styles for buttons within the modal. */
   font-family: var(--ff-comfortaa);
   font-size: 1.3rem;
   color: var(--red);
@@ -176,6 +236,7 @@ article.modal {
   cursor: pointer;
 }
 .modal button:hover {
+  /* Styles for button hover states. Adds a transform effect, transition, and background color change. */
   transform: translate(3px, 0px);
   transition: all 0.5s;
   background-color: var(--black);

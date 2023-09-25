@@ -1,18 +1,28 @@
 var modalVisible = false; // Track the modal's visibility
 function toggleModal() {
   // Get the modalContent element
-  var modalContent = document.getElementById("modalContent");
+  var modalContent = document.getElementById("myToggle-Modal");
 
   // Get the toggle button element
-  var btn = document.getElementById("toggle-myModal");
-  btn.textContent = modalVisible ? "Show Game Rules" : "Hide Game Rules";
-
-  // Get the image and set its source
-  var img = document.getElementById("modalImage");
-  img.src = "assets/game.jpeg";
+  var btn = document.getElementById("button-toggle-Modal");
 
   // Toggle the modal's visibility
   modalVisible = !modalVisible;
+
+  // Update the button text based on visibility
+  // Adjust button position based on modal visibility
+  if (modalVisible) {
+    btn.style.top = "10px"; // Move the button to the top when the modal is visible
+    btn.textContent = "Hide Game Rules";
+  } else {
+    btn.style.top = ""; // Reset the top position when hiding the modal
+    btn.textContent = "Show Game Rules";
+  }
+  //btn.textContent = modalVisible ? "Hide Game Rules" : "Show Game Rules";
+
+  // Get the image and set its source
+  var img = document.getElementById("toggle-modalImage");
+  //img.src = "assets/game.jpeg";
 
   // Update the display property based on visibility
   modalContent.style.display = modalVisible ? "block" : "none";
@@ -36,6 +46,10 @@ const messagePar = document.querySelector(".message");
 const scoreCardSection = document.querySelector(".score-card");
 const pcScoreSpan = document.getElementById("pc-score");
 const userScoreSpan = document.getElementById("your-score");
+//? Modal
+const modalCardSection = document.querySelector(".modal-card");
+const finalMessagePar = document.getElementById("final-message");
+const playAgainBtn = document.getElementById("play-again");
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");
@@ -101,6 +115,10 @@ const calculateResult = () => {
         break;
     }
   }
+
+  if (pcScoreSpan.textContent === "10" || userScoreSpan.textContent === "10") {
+    openModal();
+  }
 };
 
 const draw = (userChoice, pcChoice) => {
@@ -123,6 +141,31 @@ const pcWins = (userChoice, pcChoice) => {
   messagePar.style.backgroundColor = LOST;
   pcScoreSpan.textContent++;
 };
+
+// Function to show the "modal-card" modal
+function showModal() {
+  modalCardSection.classList.add("show");
+}
+
+// Function to hide the "modal-card" modal
+function hideModal() {
+  modalCardSection.classList.remove("show");
+}
+
+const openModal = () => {
+  showModal();
+
+  if (userScoreSpan.textContent === "10") {
+    finalMessagePar.textContent = "👍 You Win🦾😃";
+    document.querySelector(".modal").style.backgroundColor = WIN;
+    playAgainBtn.style.color = WIN;
+  } else {
+    finalMessagePar.textContent = "🤢🤞You Lost ☹️";
+    document.querySelector(".modal").style.backgroundColor = LOST;
+    playAgainBtn.style.color = LOST;
+  }
+};
+
 // rockImg.addEventListener("click", () => {
 //   image.src = "./assets/rock.png";
 //   image.alt = "rock";
@@ -141,4 +184,11 @@ const pcWins = (userChoice, pcChoice) => {
 //   image.alt = "scissors";
 //   yourChoiceDiv.appendChild(image);
 // });
+
+playAgainBtn.addEventListener("click", () => {
+  // modalCardSection.classList.toggle("show")
+  // modalCardSection.classList.toggle("remove")
+  modalCardSection.style.display = "none";
+  window.location.reload();
+});
 //* ------- Functions ------- */

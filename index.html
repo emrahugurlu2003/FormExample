@@ -3,23 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <!-- Button to toggle the modal -->
-    <button id="toggle-myModal" onclick="toggleModal()">Show Game Rules</button>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <div id="modalContent" class="modal-content" style="display: none">
-        <span id="closeButton" class="close" onclick="toggleModal()"
-          >&times;</span
-        >
-        <img id="modalImage" src="" alt="Modal Image" />
-      </div>
-    </div>
     <main class="container">
-      <section class="score-card">
+      <!-- Button to toggle the modal -->
+      <button id="button-toggle-Modal" onclick="toggleModal()">
+        Show Game Rules
+      </button>
+
+      <!-- The toggle-Modal -->
+      <div id="myToggle-Modal" class="toggle-modal">
+        <div id="toggle-modal-content" class="toggle-modal-content">
+          <span id="closeButton" class="toggle-close" onclick="toggleModal()"
+            >&times;</span
+          >
+          <img
+            id="toggle-modalImage"
+            src="assets/game.jpeg"
+            alt="Toggle-Modal Image"
+          />
+        </div>
+      </div>
+      <section class="score-card" id="score-card">
         <p class="top">Top Score: <span id="top-score"> 0 : 0</span></p>
 
         <p class="score">
@@ -48,15 +55,6 @@
           <p id="final-message">You Lost</p>
           <button id="play-again">Play Again</button>
         </article>
-      </section>
-
-      <section class="choice-section">
-        <article class="choices">
-          <div id="your-choice"></div>
-          <div id="pc-choice"></div>
-        </article>
-
-        <p class="message"></p>
       </section>
     </main>
     <script src="./app.js"></script>

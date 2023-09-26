@@ -51,6 +51,13 @@ const modalCardSection = document.querySelector(".modal-card");
 const finalMessagePar = document.getElementById("final-message");
 const playAgainBtn = document.getElementById("play-again");
 
+//!top-score
+const spanTopScore = document.getElementById("top-score");
+//!top-score is initially read from local storage
+const userAtLocal = localStorage.getItem("TopUser");
+const pcAtLocal = localStorage.getItem("TopPc");
+spanTopScore.textContent = `${userAtLocal} : ${pcAtLocal}`;
+
 //* ------- Variables ------- */
 // let image = document.createElement("img");
 let userSelectImg = document.createElement("img");
@@ -151,16 +158,33 @@ function showModal() {
 function hideModal() {
   modalCardSection.classList.remove("show");
 }
+function checkTopScore(user, pc) {
+  // console.log(userAtLocal);
+  // console.log(pcAtLocal);
+  // console.log(user);
+  // console.log(pc);
+  // console.log(user - pc);
+  // console.log(userAtLocal - pcAtLocal);
+  if (user - pc > userAtLocal - pcAtLocal) {
+    finalMessagePar.textContent = "🎈🎵Top Score! 🚀💥";
+    document.querySelector(".modal").style.backgroundColor = "orange";
+    playAgainBtn.style.color = WIN;
+    localStorage.setItem("TopUser", user);
+    localStorage.setItem("TopPc", pc);
+    spanTopScore.textContent = `${user} : ${pc}`;
+  }
+}
 
 const openModal = () => {
   showModal();
 
   if (userScoreSpan.textContent === "10") {
-    finalMessagePar.textContent = "👍 You Win🦾😃";
+    finalMessagePar.textContent = "👍 You Have Won🦾😃";
     document.querySelector(".modal").style.backgroundColor = WIN;
     playAgainBtn.style.color = WIN;
+    checkTopScore(userScoreSpan.textContent, pcScoreSpan.textContent);
   } else {
-    finalMessagePar.textContent = "🤢🤞You Lost ☹️";
+    finalMessagePar.textContent = "🤢🤞You Have Lost ☹️";
     document.querySelector(".modal").style.backgroundColor = LOST;
     playAgainBtn.style.color = LOST;
   }

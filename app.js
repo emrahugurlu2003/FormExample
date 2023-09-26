@@ -56,7 +56,10 @@ const spanTopScore = document.getElementById("top-score");
 //!top-score is initially read from local storage
 const userAtLocal = localStorage.getItem("TopUser");
 const pcAtLocal = localStorage.getItem("TopPc");
-spanTopScore.textContent = `${userAtLocal} : ${pcAtLocal}`;
+spanTopScore.textContent =
+  userAtLocal !== null && pcAtLocal !== null
+    ? `${userAtLocal} : ${pcAtLocal}`
+    : `0 : 0`;
 
 //* ------- Variables ------- */
 // let image = document.createElement("img");

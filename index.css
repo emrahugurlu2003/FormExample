@@ -60,31 +60,29 @@ main.container {
 .toggle-modal {
   /* Initially hides the modal. */
   display: none;
-  /* Makes the modal cover the entire viewport. */
-  position: relative;
-  top: 2vmax;
-  left: 0vmax;
-  width: 95vmax;
-  height: 70vmax;
-  /* Adds a semi-transparent dark background. */
-  background-color: rgba(0, 0, 0, 0.7);
-  /* Ensures the modal is rendered on top of other elements. */
-  /* z-index: 1; */
 }
 /* When the modal is visible, display its content */
-/* Adjust the score-card's top position when the modal is open */
 .toggle-modal.show {
-  display: block;
-  top: 75vmax; /* Adjust this value to position it below the modal */
+  position: relative;
+  /* Adjust the score-card's top position when the modal is open */
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 3px 10px 1px;
+  color: var(--yellow);
+  border-radius: 5px;
+  padding: 0.2rem;
+  background-color: rgba(243, 143, 11, 0.932);
 }
 
 /* 6a------- Styles for the content inside the modal----------- */
 .toggle-modal-content {
   /* Centers the modal content both horizontally and vertically. */
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   /* Sets the background color of the modal content to white. */
   background-color: white;
   /* Adds padding and centers text within the modal content. */
@@ -103,9 +101,9 @@ main.container {
   cursor: pointer;
 }
 #toggle-modalImage {
-  display: block;
-  max-width: 95vw;
-  max-height: 75vh;
+  width: 100%; /* Make the image width 100% of the container width */
+  height: auto; /* Allow the image height to adjust proportionally */
+  display: block; /* Remove any extra spacing or margins around the image */
   padding: 1px 1px;
 }
 /* ----------EOF Modal Styling---------------- */

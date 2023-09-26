@@ -12,11 +12,13 @@ function toggleModal() {
   // Update the button text based on visibility
   // Adjust button position based on modal visibility
   if (modalVisible) {
-    btn.style.top = "10px"; // Move the button to the top when the modal is visible
+    // btn.style.top = "10px"; // Move the button to 10px from the top when the modal is visible
     btn.textContent = "Hide Game Rules";
+    modalContent.classList.add("show");
   } else {
-    btn.style.top = ""; // Reset the top position when hiding the modal
+    // btn.style.top = ""; // Reset the top position when hiding the modal
     btn.textContent = "Show Game Rules";
+    modalContent.classList.remove("show");
   }
   //btn.textContent = modalVisible ? "Hide Game Rules" : "Show Game Rules";
 

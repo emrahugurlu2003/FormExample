@@ -75,7 +75,11 @@ const WIN = "#5ab7ac";
 //* ------- Event Listeners ------- */
 selectionArticle.addEventListener("click", (e) => {
   // console.log(e.target.id)
-  if (e.target.id) {
+  if (
+    e.target.id ||
+    (parseInt(pcScoreSpan.textContent) < 10 &&
+      parseInt(userScoreSpan.textContent) < 10)
+  ) {
     userSelectImg.src = `./assets/${e.target.id}.png`;
     userSelectImg.alt = e.target.id;
     yourChoiceDiv.appendChild(userSelectImg);
